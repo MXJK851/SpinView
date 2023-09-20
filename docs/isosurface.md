@@ -11,7 +11,7 @@
 
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/before_iso.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/before_iso.html"></iframe>
 </div>
 
 
@@ -21,26 +21,26 @@
 Using X component 
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/iso_15_x.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/iso_15_x.gif" draggable="false">
 </div>
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/iso_15_x.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/iso_15_x.html"></iframe>
 </div>
 
 Using Z component 
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/iso_15_z.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/iso_15_z.html"></iframe>
 </div>
 
 
 ## 3. Isosurface along Z axis and colored with Y component:
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/iso_z.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/iso_z.gif" draggable="false">
 </div>
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/iso_z.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/iso_z.html"></iframe>
 </div>

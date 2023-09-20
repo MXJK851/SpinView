@@ -14,7 +14,7 @@
 
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/comp_filter_or.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/comp_filter_or.html"></iframe>
 </div>
 
 
@@ -23,9 +23,9 @@
 
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/comp_filter_z.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/comp_filter_z.gif" draggable="false">
 </div>
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/comp_filter_z.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/comp_filter_z.html"></iframe>
 </div>

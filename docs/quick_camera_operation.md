@@ -16,16 +16,16 @@
 
 ## 2. Camera Z axis:
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/camera.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/camera.html"></iframe>
 </div>
 
 
 ## 2. Set camera to X axis:
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/camera_x.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/camera_x.gif" draggable="false">
 </div>
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/camera_x.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/camera_x.html"></iframe>
 </div>

@@ -11,7 +11,7 @@
 ## Original data, using color component Z in cartesian coordinate system
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/change_color_original.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/change_color_original.html"></iframe>
 </div>
 
 
@@ -19,11 +19,11 @@
 
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/change_color_X.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/change_color_X.gif" draggable="false">
 </div>
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/change_color_X.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/change_color_X.html"></iframe>
 </div>
 
 
@@ -31,11 +31,11 @@
 
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/change_color_phi.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/change_color_phi.gif" draggable="false">
 </div>
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/change_color_phi.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/change_color_phi.html"></iframe>
 </div>
 
 

@@ -15,11 +15,11 @@ Here we show the process of overlapping `sphere` and `arrow` glyphs with transpa
 Firstly, let us add the `sphere` glyph to the scene.
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/using_sphere.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/using_sphere.gif" draggable="false">
 </div>
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/using_sphere.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/using_sphere.html"></iframe>
 </div>
 
 ## Overlap with glyph `arrow`: 
@@ -27,10 +27,10 @@ Firstly, let us add the `sphere` glyph to the scene.
 Then, we overlap the `arrow` glyph to the scene.
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/overlap_arrow.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/overlap_arrow.gif" draggable="false">
 </div>
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/overlap_arrow.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/overlap_arrow.html"></iframe>
 </div>
 
 
@@ -38,11 +38,11 @@ Let's change a little bit the starting point of the arrow.
 
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/change_arrow_start_point.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/change_arrow_start_point.gif" draggable="false">
 </div>
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/change_arrow_start_point.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/change_arrow_start_point.html"></iframe>
 </div>
 
 
@@ -52,11 +52,11 @@ Prefect, let us add the `T mesh` to the scene and change the opacity of the `T m
 
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/overlap_tmesh.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/overlap_tmesh.gif" draggable="false">
 </div>
 
 
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/overlap_tmesh.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/overlap_tmesh.html"></iframe>
 </div>

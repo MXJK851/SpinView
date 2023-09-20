@@ -12,26 +12,26 @@
 ## 1. Original data
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/projection_or.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/projection_or.html"></iframe>
 </div>
 
 
 ## 2. Apply the projection without FFT
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/projection_apply.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/projection_apply.gif" draggable="false">
 </div>
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/projection_apply.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/projection_apply.html"></iframe>
 </div>
 
 ## 3. Apply the projection with FFT
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/projection_apply_with_fft.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/projection_apply_with_fft.gif" draggable="false">
 </div>
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/projection_apply_with_fft.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/projection_apply_with_fft.html"></iframe>
 </div>

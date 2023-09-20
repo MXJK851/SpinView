@@ -17,7 +17,7 @@
 
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/comp_filter_or.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/comp_filter_or.html"></iframe>
 </div>
 
 
@@ -26,9 +26,9 @@
 
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/face_filter_X.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/face_filter_X.gif" draggable="false">
 </div>
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/face_filter_X.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/face_filter_X.html"></iframe>
 </div>

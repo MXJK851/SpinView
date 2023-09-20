@@ -8,7 +8,7 @@
 without pbr:
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/without_pbr.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/without_pbr.gif" draggable="false">
 </div>
 
 
@@ -16,7 +16,7 @@ without pbr:
 with pbr:
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/with_pbr.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/with_pbr.gif" draggable="false">
 </div>
 
 
@@ -27,7 +27,7 @@ with pbr:
 
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/increase_Metallic.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/increase_Metallic.gif" draggable="false">
 </div>
 
 ## 2. increase `Roughness` :
@@ -35,6 +35,6 @@ with pbr:
 
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/increase_Roughness.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/increase_Roughness.gif" draggable="false">
 </div>
 

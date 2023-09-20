@@ -12,7 +12,7 @@
 
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/comp_filter_or.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/comp_filter_or.html"></iframe>
 </div>
 
 
@@ -21,20 +21,20 @@
 
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/res_ccs_x.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/res_ccs_x.gif" draggable="false">
 </div>
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/res_ccs_x.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/res_ccs_x.html"></iframe>
 </div>
 
 
 ## 3. Rescale in spherical coordinate system:
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/res_sp.gif" draggable="false">
+<img width=300, height=300 src="/SpinView/assets/gif/res_sp.gif" draggable="false">
 </div>
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/res_sp.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/SpinView/assets/html/res_sp.html"></iframe>
 </div>

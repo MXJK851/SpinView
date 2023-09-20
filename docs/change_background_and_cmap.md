@@ -11,26 +11,26 @@
 ## 1. Original data
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/bgc_bg.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="docs/assets/html/bgc_bg.html"></iframe>
 </div>
 
 
 ## 2. change background color
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/bgc_bg_cbg.gif" draggable="false">
+<img width=300, height=300 src="docs/assets/gif/bgc_bg_cbg.gif" draggable="false">
 </div>
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/bgc_bg_cbg.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="docs/assets/html/bgc_bg_cbg.html"></iframe>
 </div>
 
 ## 3. change color map
 
 <div style="text-align: center;">
-<img width=300, height=300 src="/assets/gif/bgc_bg_cbgc.gif" draggable="false">
+<img width=300, height=300 src="docs/assets/gif/bgc_bg_cbgc.gif" draggable="false">
 </div>
 
 <div style="text-align: center;">
-<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="/assets/html/bgc_bg_cbgc.html"></iframe>
+<iframe width=700, height=500 frameBorder=0 seamless="seamless" scrolling="no" src="docs/assets/html/bgc_bg_cbgc.html"></iframe>
 </div>

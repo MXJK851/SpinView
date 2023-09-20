@@ -1,7 +1,7 @@
 site_name: SpinView
 
 repo_name: SpinView
-site_url: https://mxjk851.github.io/SpinView/docs
+site_url: https://mxjk851.github.io/SpinView/
 
 repo_url: https://github.com/MXJK851/SpinView/
 theme:
@@ -31,8 +31,6 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format ''
   - pymdownx.tabbed:
       alternate_style: true
-  - mdx_include:
-      base_path: docs
 
 extra_css:
   - css/termynal.css

@@ -2,8 +2,10 @@ site_name: SpinView
 
 repo_name: SpinView
 site_url: https://mxjk851.github.io/SpinView/
-copyright: QichenXu
+
 repo_url: https://github.com/MXJK851/SpinView/
+site_author: Qichen Xu
+copyright: QichenXu
 
 theme:
   name: material

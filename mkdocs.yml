@@ -1,0 +1,81 @@
+site_name: SpinView
+
+repo_name: SpinView
+
+repo_url: https://github.com/MXJK851/SpinView
+slack_invit: https://join.slack.com/t/kth-1m86370/shared_invite/zt-23j4zhyv9-b~ZsV3cm60B8JUG8gQTk0w
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  icon:  
+    logo: logo_small
+    favicon: img/favicon.png
+  palette:
+    primary: indigo
+  features:
+    - announce.dismiss
+    - navigation.tabs
+    - navigation.top
+markdown_extensions:
+  - toc:
+      permalink: true
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - admonition
+  - codehilite
+  - extra
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format ''
+  - pymdownx.tabbed:
+      alternate_style: true
+  - mdx_include:
+      base_path: docs
+
+extra_css:
+  - css/termynal.css
+  - css/custom.css
+
+extra_javascript:
+  - https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js
+  - js/termynal.js
+  - js/custom.js
+
+nav:
+  - Home: index.md
+  - Installation:
+    - installation.md
+    - installation2.md
+  - Running the code :
+    - Get_help.md
+    - Start.md
+  
+  - Features:
+    - quick_object_change.md
+    - change_color.md
+    - change_opacity.md
+    - change_size.md
+    - change_reslution.md
+    - change_background_and_cmap.md
+    - quick_camera_operation.md
+    - PBR.md
+    - overlap.md
+    - denoise.md
+    - projection.md
+    - component_filter.md
+    - clip_filter.md
+    - rescale_filter.md
+    - isosurface.md
+
+    - share_data.md
+    - store_data.md
+    - reuse_database.md
+
+
+  - Tutorials:
+    - UppASD_demo.md
+    - OVFfile_demo.md
+    - Vampire.md

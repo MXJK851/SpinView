@@ -1,0 +1,336 @@
+<!-- Custom HTML site displayed as the Home chapter -->
+
+{% extends "main.html" %}
+{% block tabs %}
+{{ super() }}
+<style>
+    .md-main {
+        flex-grow: 0
+    }
+
+    .md-main__inner {
+        display: flex;
+        height: 100%;
+    }
+
+    .tx-container {
+        padding-top: .0rem;
+        background: linear-gradient(to bottom, var(--md-primary-fg-color), rgb(173, 37, 89) 99%, #fff 99%)
+    }
+
+    .tx-hero {
+        margin: 32px 2.8rem;
+        color: var(--md-primary-bg-color);
+        justify-content: center;
+    }
+
+    .tx-hero h1 {
+        margin-bottom: 1rem;
+        color: currentColor;
+        font-weight: 700;
+        font-size: 100px;
+    }
+
+    .tx-hero__content {
+        padding-bottom: 1rem;
+        margin: 0 auto;
+    }
+
+    .tx-hero__image {
+        width: 17rem;
+        height: 17rem;
+        order: 1;
+        padding-right: 2.5rem;
+    }
+
+    .tx-hero .md-button {
+        background-color: rgba(255, 215, 129, 0.441);
+        margin-top: .5rem;
+        margin-right: .5rem;
+        color: rgb(0, 0, 0)
+    }
+
+    .tx-hero .md-button--primary {
+        background-color: rgba(226, 226, 226, 0.663);
+        color: rgb(0, 0, 0);
+        border-color: var(--md-primary-bg-color)
+    }
+
+    .tx-hero .md-button:focus,
+    .tx-hero .md-button:hover {
+        background-color: rgba(226, 226, 226, 0.663);
+        color: rgb(0, 0, 0);
+        border-color: var(--md-accent-fg-color)
+    }
+
+    .feature-item h2 svg {
+        height: 30px;
+        float: left;
+        margin-right: 10px;
+        transform: translateY(10%);
+    }
+
+    .top-hr {
+        margin-top: 42px;
+    }
+
+    .feature-item {
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+        box-sizing: border-box;
+        padding: 0 15px;
+        word-break: break-word
+    }
+
+    .feature-item h2 {
+        color: #333;
+        font-weight: 300;
+        font-size: 30px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: normal;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-family: inherit;
+    }
+
+    .feature-item p {
+        font-size: 18px;
+        line-height: 1.8em;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        color: #000000;
+        margin: 0 0 10px;
+        display: block;
+    }
+
+
+    @media screen and (max-width:30em) {
+        .tx-hero h1 {
+            font-size: 1.4rem
+        }
+    }
+
+    @media screen and (min-width:60em) {
+        .md-sidebar--secondary {
+            display: none
+        }
+
+        .tx-hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tx-hero__content {
+            max-width: 60rem;
+            margin-top: 3.5rem;
+            margin-bottom: 3.5rem;
+            margin-left: 1.0rem;
+            margin-right: 4.0rem;
+            align-items: center;
+        }
+    }
+
+    @media screen and (min-width:76.25em) {
+        .md-sidebar--primary {
+            display: none
+        }
+
+        .top-hr {
+            width: 100%;
+            display: flex;
+            max-width: 61rem;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 0 .2rem;
+        }
+
+        .bottom-hr {
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            max-width: 61rem;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 0 .2rem;
+        }
+
+        .feature-item {
+            flex: 1;
+            min-width: 0;
+
+        }
+
+        .feature-item:hover {
+            background-color: #8fe3f647;
+            border-radius: 3px;
+
+        }
+    }
+
+    .hr {
+        border-bottom: 1px solid #880084;
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .text-center {
+        text-align: center;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 15px;
+        font-family: 'Lato', sans-serif;
+        font-size: 23px;
+        font-weight: 300;
+        padding-bottom: 10px;
+    }
+
+    .logos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        margin: 0 auto;
+    }
+
+    .logos img {
+        flex: 1 1 auto;
+        padding: 25px;
+        max-height: 130px;
+        vertical-align: middle;
+    }
+
+    .hr-logos {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    .md-footer-meta__inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 1.0rem;
+    }
+
+    .md-footer-social {
+        padding-top: 20px;
+    }
+</style>
+
+<!-- Main site Entry button descriptions -->
+<section class="tx-container">
+    <div class="md-grid md-typeset">
+        <div class="tx-hero">
+
+            <div class="tx-hero__image">
+                <img src="assets/logo_small.svg" draggable="false">
+            </div>
+            <div class="tx-hero__content">
+
+                <h1 class="animate-charcter"> SpinView </h1>
+                <p>General interactive visual analysis tool
+                    for multi-scale computational magnetism.</p>
+                <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | striptags }}"
+                    class="md-button md-button--primary">
+                    Get started
+                </a>
+                <a href="{{config.paper}}" title="{{ lang.t('source.link.title') }}"
+                    class="md-button md-button--primary">
+                    Cite our paper
+                </a>
+
+                </a>
+                <a href="{{ config.slack_invit }}" title="{{ lang.t('source.link.title') }}"
+                    class="md-button md-button--primary">
+                    Join us (Slack)
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main site box descriptions -->
+<div class="top-hr">
+    <div class="feature-item">
+
+        <h2>
+            <div class="tx-hero__image">
+                <img src="assets/SpinView1.gif" draggable="false">
+            </div>
+
+            User friendly
+        </h2>
+        <p> Enjoy the combination of Command-line-interface, WebUI and DesktopUI </p>
+    </div>
+    <div class="feature-item">
+        <h2>
+            <div class="tx-hero__image">
+                <img src="assets/SpinView3.gif" draggable="false">
+            </div>
+
+            Post-processing
+        </h2>
+        <p>Denoising, Clip, Rescaling, try the visual exploration and data mining with SpinView! </p>
+    </div>
+    <div class="feature-item">
+        <h2>
+            <div class="tx-hero__image">
+                <img src="assets/SpinView2.gif" draggable="false">
+            </div>
+            Feature-rich 3D visualization
+        </h2>
+        <p>Visualize your simulation result with glyphs, e.g., sphere, cone, arrow, plane, box, and any 3D models
+            generated by yourself. Overlap everything including recontructed mesh and isosurface.</p>
+    </div>
+</div>
+
+
+<div class="top-hr">
+    <div class="feature-item">
+        <h2>
+            Extendable
+        </h2>
+        <p> Currently support .out (<a href="https://github.com/UppASD/UppASD"
+                style="color:rgb(0, 255, 221);">UppASD</a>),
+            Non-binary .ovf
+            (<a href="https://mumax.github.io/" style="color:rgb(0, 0, 255);">Mumax3</a>, <a
+                href="https://math.nist.gov/oommf/" style="color:rgb(255, 128, 0);">OOMMF</a>, <a
+                href="https://spirit-code.github.io/" style="color:rgb(77, 255, 0);">Spirit</a>), and .data (<a
+                href="https://vampire.york.ac.uk/" style="color:rgb(153, 131, 248);">Vampire</a>) output files
+            and can easiy extend to other magnetic simulation code.</p>
+    </div>
+    <div class="feature-item">
+        <h2>
+            Shareable
+        </h2>
+        <p>Take snapshoot, rendering a trajectory video, make a protable interactive HTML file with only one click! </p>
+    </div>
+    <div class="feature-item">
+
+        <h2>
+            Community support
+        </h2>
+        <p>Open-source (GPL V3) and free to use, based on <a href="https://www.python.org/"
+                style="color:rgb(248, 131, 131);">Python</a>, <a href="https://pandas.pydata.org/"
+                style="color:rgb(47, 135, 193);">Pandas</a>, <a href="https://numpy.org/"
+                style="color:rgb(153, 131, 248);">Numpy</a>, <a href="https://scipy.org/"
+                style="color:rgb(160, 126, 145);">Scipy</a>, <a href="https://kitware.github.io/trame/"
+                style="color:rgb(193, 186, 53);">Trame</a>, and <a href="https://pyvista.org/"
+                style="color:rgb(9, 255, 9);">Pyvista</a>. </p>
+    </div>
+</div>
+<div class="top-hr">
+    <div class="hr">
+        <h2> Contact author: Qichen Xu, qichenx@kth.se</h2>
+
+    </div>
+
+</div>
+
+{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}

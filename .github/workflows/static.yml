@@ -2,7 +2,6 @@ name: static
 on:
   push:
     branches:
-      - master 
       - main
 permissions:
   contents: write
@@ -21,5 +20,5 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material mdx_include
+      - run: pip install mkdocs-material
       - run: mkdocs gh-deploy --force

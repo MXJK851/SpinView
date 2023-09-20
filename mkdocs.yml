@@ -1,7 +1,7 @@
 site_name: SpinView
 
 repo_name: SpinView
-site_url: https://mxjk851.github.io/SpinView/
+site_url: https://mxjk851.github.io/SpinView/docs
 copyright: QichenXu
 repo_url: https://github.com/MXJK851/SpinView/
 
@@ -34,6 +34,8 @@ markdown_extensions:
       alternate_style: true
   - mdx_include:
       base_path: docs
+
+      
 extra_css:
   - css/termynal.css
   - css/custom.css
@@ -51,7 +53,7 @@ nav:
   - Running the code :
     - Get_help.md
     - Start.md
-  
+    
   - Features:
     - quick_object_change.md
     - change_color.md
@@ -68,12 +70,9 @@ nav:
     - clip_filter.md
     - rescale_filter.md
     - isosurface.md
-
     - share_data.md
     - store_data.md
     - reuse_database.md
-
-
   - Tutorials:
     - UppASD_demo.md
     - OVFfile_demo.md

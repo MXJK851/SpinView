@@ -29,5 +29,18 @@ $ pip install spinview
 ---> 100%
 Successfully installed spinview
 ```
+## 3. launch SpinView in simulation folder under auto mode using the following command:
+
+<div class="termy">
+```console
+$ spinview start
+```
+
+
+<div style="text-align: center;">
+<img width=500, height=300 src="/SpinView/assets/home.png" draggable="false">
+</div>
+
+
 </div>
 

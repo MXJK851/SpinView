@@ -13,7 +13,7 @@
 
 <div class="termy">
 ```console
-$ conda create -n spinview python==3.9
+$ conda create -n spinview python=3.9
 
 Proceed ([y]/n)?     y
 ---> 100%
@@ -25,11 +25,24 @@ Successfully created conda environment for SpinView
 
 <div class="termy">
 ```console
+$ conda activate spinview
 $ pip install spinview
 ---> 100%
 Successfully installed spinview
 ```
 </div>
+
+
+Note that user in `China mainland` may need to add a pip source to make sure you can easily download all packages. (add `-i https://pypi.tuna.tsinghua.edu.cn/simple`)
+
+<div class="termy">
+```console
+$ pip install ./spinview-1.0.0-py3-none-any.whl  -i https://pypi.tuna.tsinghua.edu.cn/simple
+---> 100%
+Successfully installed spinview
+```
+</div>
+
 
 ## 4. launch SpinView in simulation folder under auto mode using the following command:
 
@@ -39,6 +52,8 @@ Successfully installed spinview
 $ spinview start
 ```
 </div>
+
+Note: it will be a little bit slow from cold start, please wait for a while. 
 
 <div style="text-align: center;">
 <img width=500, height=300 src="/SpinView/assets/home.png" draggable="false">

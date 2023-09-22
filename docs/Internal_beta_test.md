@@ -20,7 +20,7 @@ You can choose one of the above two options to install conda.
 
 <div class="termy">
 ```console
-$ conda create -n spinview python==3.9
+$ conda create -n spinview python=3.9
 
 Proceed ([y]/n)?     y
 ---> 100%
@@ -30,6 +30,7 @@ Successfully created conda environment for SpinView
 
 ## 3. Go to the path that have `spinview-1.0.0-py3-none-any.whl` file and install SpinView `spinview-1.0.0-py3-none-any.whl` file using the following command:
 
+
 <div class="termy">
 ```console
 $ pip install ./spinview-1.0.0-py3-none-any.whl
@@ -38,13 +39,30 @@ Successfully installed spinview
 ```
 </div>
 
-## 4. launch SpinView in simulation folder (sub-folder in the demo) under auto mode using the following command:
+Note that user in China Mainland may need to add a pip source to make sure you can easily download all packages. (add `-i https://pypi.tuna.tsinghua.edu.cn/simple`)
+
+<div class="termy">
+```console
+$ pip install ./spinview-1.0.0-py3-none-any.whl  -i https://pypi.tuna.tsinghua.edu.cn/simple
+---> 100%
+Successfully installed spinview
+```
+</div>
+
+
+
+## 4. launch SpinView in simulation folder (sub-folder in the demo) under auto mode using the following command, remember you need to use the conda environment that you created in step 2:
 
 
 <div class="termy">
 ```console
+$ conda activate spinview
+
 $ spinview start
 ```
+
+Note: it will be a little bit slow from cold start, please wait for a while. 
+
 </div>
 
 <div style="text-align: center;">
@@ -68,3 +86,6 @@ Note:
 
 4. In Vampire demo, one trajectory with kagome lattice is include, in this case, rectangle mesh will not work, only trianglazation is needed for isosurface rendering.
 
+Know problem:
+
+1. In macos the local view windows can not close or will leave a python icon stay in your docker, see here: https://github.com/pyvista/pyvista/issues/1096, but it will not affect the main window, and the local view mode works properly when open it again. Our current suggestion is just leave the ghost windows there after close the local view windows and go back to the main window. (This problem will not happend in windows system.)

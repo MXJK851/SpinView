@@ -75,9 +75,9 @@ nav:
     - share_data.md
     - store_data.md
     - reuse_database.md
-  - Tutorials:
-    - UppASD_demo.md
-    - OVFfile_demo.md
-    - Vampire.md
+  # - Tutorials:
+  #   - UppASD_demo.md
+  #   - OVFfile_demo.md
+  #   - Vampire.md
   - Blogs:
     - Internal_beta_test.md

@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "spinview"
+version = "1.0.0"
+description = ""
+authors = ["qichenxu <qichenx@kth.se>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.9"
+trame = "2.5.2"
+plotly = "^5.16.1"
+typer = {extras = ["all"], version = "^0.9.0"}
+pyvista = "0.41.1"
+pandas = "^2.1.0"
+tqdm = "^4.66.1"
+scipy = "^1.11.2"
+pywebview = "^4.3.3"
+imageio = {extras = ["ffmpeg"], version = "^2.31.3"}
+
+[tool.poetry.scripts]
+spinview = "spinview.spinview:spinview_cli"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

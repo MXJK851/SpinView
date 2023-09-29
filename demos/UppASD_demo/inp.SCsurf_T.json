@@ -1,0 +1,21 @@
+{
+             "simid"  :             "SCsurf_T",
+             "ncell"  :             [      128 ,      128 ,        1 ], 
+                "bc"  :             [ "P" , "P" , "0" ], 
+              "cell"  :  [
+           [    1.00000     ,    0.00000     ,    0.00000     ]  
+           [    0.00000     ,    1.00000     ,    0.00000     ]  
+           [    0.00000     ,    0.00000     ,    1.00000     ]  
+                         ],
+                "na"  :         1,
+                "nt"  :         1,
+               "sym"  :         0,
+               "llg"  :         1,
+           "sdealgh"  :         1,
+         "mensemble"  :         1,
+           "initmag"  :         3,
+           "moments"  :  [
+           [   0.995037E-01 ,    0.00000     ,   0.995037     ]  
+                         ],
+           "comment"  :  "Input data from UppASD simulation"
+  } 

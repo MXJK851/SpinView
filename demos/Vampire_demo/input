@@ -1,0 +1,71 @@
+#------------------------------------------
+# Creation attributes:
+#------------------------------------------
+create:crystal-structure=sc
+#create:periodic-boundaries-x
+#create:periodic-boundaries-y
+#create:periodic-boundaries-z
+#------------------------------------------
+# System Dimensions:
+#------------------------------------------
+dimensions:system-size-x = 20.0 !nm
+dimensions:system-size-y = 20.0 !nm
+dimensions:system-size-z = 0.6 !nm
+
+
+
+#------------------------------------------
+# Material Files:
+#------------------------------------------
+material:file=Kagome.mat
+material:unit-cell-file = Kagome.ucf
+#------------------------------------------
+# Simulation attributes:
+#------------------------------------------
+sim:temperature=5.0
+sim:minimum-temperature=0
+sim:maximum-temperature=100
+sim:temperature-increment=1
+sim:time-steps-increment=1
+sim:equilibration-temperature = 100
+sim:equilibration-time-steps=50000
+sim:loop-time-steps=4000000
+
+#sim:applied-field-strength = 1.7 !T
+#sim:applied-field-unit-vector = 0,0,1
+#sim:equilibration-applied-field-strength = 1.7 !T
+
+
+
+
+sim:total-time-steps=500000
+sim:time-step=1e-16
+
+sim:save-checkpoint=end
+#sim:load-checkpoint=restart
+
+
+#------------------------------------------
+# Program and integrator details
+#------------------------------------------
+#sim:program=curie-temperature
+#sim:integrator=monte-carlo
+
+sim:program=time-series
+sim:integrator=llg-heun
+
+
+#------------------------------------------
+# Data output
+#------------------------------------------
+output:output-rate = 500
+output:real-time
+output:temperature
+#output:magnetisation
+#output:magnetisation-length
+output:material-mean-magnetisation-length
+output:total-energy
+
+config:atoms
+config:atoms-output-rate = 100000
+

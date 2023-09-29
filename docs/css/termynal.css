@@ -1,11 +1,3 @@
-/**
- * termynal.js
- *
- * @author Ines Montani <ines@ines.io>
- * @version 0.0.1
- * @license MIT
- */
-
 :root {
     --color-bg: #252a33;
     --color-text: #eee;
@@ -25,7 +17,7 @@
     padding: 75px 45px 35px;
     position: relative;
     -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     line-height: 1.2;
 }
 
@@ -41,7 +33,7 @@
     /* A little hack to display the window buttons in one pseudo element. */
     background: #d9515d;
     -webkit-box-shadow: 25px 0 0 #f4c025, 50px 0 0 #3ec930;
-            box-shadow: 25px 0 0 #f4c025, 50px 0 0 #3ec930;
+    box-shadow: 25px 0 0 #f4c025, 50px 0 0 #3ec930;
 }
 
 [data-termynal]:after {
@@ -91,7 +83,7 @@ a[data-terminal-control] {
     font-family: monospace;
     margin-left: 0.5em;
     -webkit-animation: blink 1s infinite;
-            animation: blink 1s infinite;
+    animation: blink 1s infinite;
 }
 
 

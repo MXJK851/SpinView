@@ -1,0 +1,26 @@
+**************** Rotation parameters            ****************
+Rotation                       0
+Rotation Angle    0.00000000E+00  0.00000000E+00  0.00000000E+00
+  
+**************** Demagnetization field          ****************
+Demag                          N               N               N
+Demag                          N
+Volume            0.00000000E+00
+  
+**************** Micro-wave field               ****************
+  
+**************** Initial phase                  ****************
+MC, SD, EM                       Y 
+Field             0.00000000E+00  0.00000000E+00  0.00000000E+00
+ 
+**************** Measurement phase              ****************
+MC, SD, MEP                         S 
+Gradient				 N
+T                 3.00000000E+01
+Field             0.00000000E+00  0.00000000E+00 -1.50000000E+02
+Lambda            5.00000000E-01  0.00000000E+00
+Nstep                       5000
+delta_t           1.00000000E-15
+   
+Tottraj                        Y             250              10
+No. trajectories               0

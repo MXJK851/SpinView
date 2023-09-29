@@ -14,6 +14,7 @@
 <div class="termy">
 ```console
 $ conda create -n spinview python=3.9
+$ conda create -n spinview python=3.9
 
 Proceed ([y]/n)?     y
 ---> 100%
@@ -37,7 +38,7 @@ Note that user in `China mainland` may need to add a pip source to make sure you
 
 <div class="termy">
 ```console
-$ pip install ./spinview-1.0.0-py3-none-any.whl  -i https://pypi.tuna.tsinghua.edu.cn/simple
+$ pip install spinview  -i https://pypi.tuna.tsinghua.edu.cn/simple
 ---> 100%
 Successfully installed spinview
 ```
@@ -52,6 +53,8 @@ Successfully installed spinview
 $ spinview start
 ```
 </div>
+
+Note: it will be a little bit slow from cold start, please wait for a while. 
 
 Note: it will be a little bit slow from cold start, please wait for a while. 
 

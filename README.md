@@ -64,3 +64,5 @@ or you can give the absolute path of the simulation folder
 Note: it will be a little bit slow from cold start, please wait for a while. 
 
 
+# More information can be find in our website <a href="https://mxjk851.github.io/SpinView/">Website</a>.
+

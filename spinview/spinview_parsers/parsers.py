@@ -392,7 +392,7 @@ def parse_moment_and_coord_file(pyvista_LR, working_dir=os.getcwd()):
         magnitudes = np.ones(len(mom_states_z))
     else:
         raise Exception(
-            "Current outputfile_type support UppASD, vampire(partly) and .ovf, more is coming soon"
+            " Make sure you execute SpinView in the simulation folder, if not you can change your current path to the simulation folder or add '--wp' combine with absoult path of your sumulation folder to 'spinview start'. Current outputfile_type support UppASD, vampire(partly) and .ovf, more is coming soon"
         )
 
     return coord, mom_states_x, mom_states_y, mom_states_z, magnitudes

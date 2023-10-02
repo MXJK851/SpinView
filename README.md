@@ -8,7 +8,7 @@
       • &nbsp;
       <a href="https://mxjk851.github.io/SpinView/quick_object_change/">Feature documentation</a> &nbsp;
       • &nbsp;
-      <a href="">Cite our paper</a> &nbsp;
+      <a href="https://arxiv.org/abs/2309.17367">Cite our paper</a> &nbsp;
       • &nbsp;
       <a href="">Join the slack</a> &nbsp;
     </b>

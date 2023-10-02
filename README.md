@@ -63,6 +63,10 @@ or you can give the absolute path of the simulation folder
 
 Note: it will be a little bit slow from cold start, please wait for a while. 
 
+# Question and Contributing:
+
+We are happy to answer any questions you may have. SpinView also welcomes any contributions and collaboration to make it better. Please feel free to contact us via email or Slack. 
+
 
 ## More information can be find in our <a href="https://mxjk851.github.io/SpinView/">Website</a>.
 

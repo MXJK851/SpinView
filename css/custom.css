@@ -1,0 +1,71 @@
+.termynal-comment {
+    color: #4a968f;
+    font-style: italic;
+    display: block;
+}
+
+.termy [data-termynal] {
+    white-space: pre-wrap;
+}
+
+a.external-link::after {
+    /* \00A0 is a non-breaking space
+        to make the mark be on the same line as the link
+    */
+    content: "\00A0[↪]";
+}
+
+a.internal-link::after {
+    /* \00A0 is a non-breaking space
+        to make the mark be on the same line as the link
+    */
+    content: "\00A0↪";
+}
+
+.animate-charcter {
+    background-image: linear-gradient(-225deg,
+            #ff4141 15%,
+            #ffe944 30%,
+            #edff4c 45%,
+            #7bff88 60%,
+            #7291ff 75%,
+            #da73ff 90%,
+            #a000b2 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    font-size: 400px;
+}
+
+
+
+.animate-charcter2 {
+    text-transform: uppercase;
+    background-image: linear-gradient(-225deg,
+            #d3d3d3 50%,
+            #fbfbfb 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 5s linear infinite;
+    display: inline-block;
+}
+
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}

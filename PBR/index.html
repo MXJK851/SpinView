@@ -1,0 +1,1370 @@
+<!-- Elements added to main will be displayed on all pages -->
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Qichen Xu">
+      
+      
+        <link rel="canonical" href="https://mxjk851.github.io/SpinView/PBR/">
+      
+      
+        <link rel="prev" href="../quick_camera_operation/">
+      
+      
+        <link rel="next" href="../overlap/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Using physically based rendering (PBR) - SpinView</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/termynal.css">
+    
+      <link rel="stylesheet" href="../css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-physically-based-rendering-pbr" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SpinView" class="md-header__button md-logo" aria-label="SpinView" data-md-component="logo">
+      
+  
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(0.60623,-0.279735,0.279735,0.60623,-1030.3,386.063)">
+        <circle cx="2019.47" cy="1095.78" r="517.898" style="fill:url(#_Linear1);stroke:url(#_Linear2);stroke-width:23.96px;"/>
+    </g>
+    <g transform="matrix(0.444206,1.97869e-17,-1.97869e-17,0.444206,-396.572,-1.31062)">
+        <circle cx="2019.47" cy="1095.78" r="517.898" style="fill:url(#_Linear3);stroke:url(#_Linear4);stroke-width:36.02px;"/>
+    </g>
+    <g transform="matrix(0.245105,0.552839,-0.552839,0.245105,700.832,-748.476)">
+        <circle cx="2013.32" cy="868.582" r="29.593" style="stroke:black;stroke-width:26.46px;"/>
+    </g>
+    <g transform="matrix(-0.245105,0.552839,0.552839,0.245105,300.144,-748.476)">
+        <circle cx="2013.32" cy="868.582" r="29.593" style="stroke:black;stroke-width:26.46px;"/>
+    </g>
+    <g transform="matrix(-0.598461,0.345522,0.519058,0.899035,623.986,-469.086)">
+        <clipPath id="_clip5">
+            <rect x="1071.92" y="606.422" width="283.925" height="193.053"/>
+        </clipPath>
+        <g clip-path="url(#_clip5)">
+            <path d="M907.691,716.876L907.691,756.226L907.691,667.848L907.691,707.198L1236.57,707.198L1236.57,667.848L1328.27,712.037L1236.57,756.226L1236.57,716.876L907.691,716.876Z" style="stroke:black;stroke-width:6.8px;"/>
+        </g>
+    </g>
+    <g transform="matrix(0.598461,0.345522,-0.519058,0.899035,379.377,-469.086)">
+        <clipPath id="_clip6">
+            <rect x="1071.92" y="606.422" width="283.925" height="193.053"/>
+        </clipPath>
+        <g clip-path="url(#_clip6)">
+            <path d="M907.691,716.876L907.691,756.226L907.691,667.848L907.691,707.198L1236.57,707.198L1236.57,667.848L1328.27,712.037L1236.57,756.226L1236.57,716.876L907.691,716.876Z" style="stroke:black;stroke-width:6.8px;"/>
+        </g>
+    </g>
+    <g transform="matrix(-5.55112e-17,-0.691044,1.03812,6.66134e-16,-239.622,1068.3)">
+        <clipPath id="_clip7">
+            <rect x="1071.92" y="606.422" width="283.925" height="193.053"/>
+        </clipPath>
+        <g clip-path="url(#_clip7)">
+            <path d="M907.691,716.876L907.691,756.226L907.691,667.848L907.691,707.198L1236.57,707.198L1236.57,667.848L1328.27,712.037L1236.57,756.226L1236.57,716.876L907.691,716.876Z" style="stroke:black;stroke-width:6.8px;"/>
+        </g>
+    </g>
+    <g transform="matrix(0.217601,-0.564232,0.564232,0.217601,-429.174,1204.31)">
+        <circle cx="2013.32" cy="868.582" r="29.593" style="stroke:black;stroke-width:26.46px;"/>
+    </g>
+    <g transform="matrix(0.712898,0,0,0.712898,136.683,111.307)">
+        <g transform="matrix(0.201743,-0.093091,0.093091,0.201743,0.89736,491.737)">
+            <circle cx="2019.47" cy="1095.78" r="517.898" style="fill:url(#_Linear8);stroke:url(#_Linear9);stroke-width:101.01px;"/>
+        </g>
+        <g id="path1948" transform="matrix(0.860942,-0.493771,0.548584,0.956514,445.348,474.671)">
+            <clipPath id="_clip10">
+                <path d="M54.919,0.001C50.335,0.022 45.958,0.413 42.106,1.095C30.76,3.099 28.7,7.295 28.7,15.032L28.7,25.251L55.513,25.251L55.513,28.657L18.638,28.657C10.845,28.657 4.022,33.341 1.888,42.251C-0.574,52.464 -0.683,58.837 1.888,69.501C3.793,77.439 8.345,83.095 16.138,83.095L25.356,83.095L25.356,70.845C25.356,61.995 33.013,54.188 42.106,54.188L68.888,54.188C76.342,54.188 82.294,48.05 82.294,40.563L82.294,15.032C82.294,7.766 76.164,2.307 68.888,1.095C64.282,0.328 59.502,-0.02 54.919,0.001ZM40.419,8.22C43.188,8.22 45.45,10.518 45.45,13.345C45.45,16.161 43.188,18.438 40.419,18.438C37.639,18.438 35.388,16.161 35.388,13.345C35.388,10.518 37.639,8.22 40.419,8.22Z" clip-rule="nonzero"/>
+            </clipPath>
+            <g clip-path="url(#_clip10)">
+                <g transform="matrix(1.22602,0.632894,-0.703151,1.10352,-240.615,-783.693)">
+                    <use xlink:href="#_Image11" x="471.039" y="425.515" width="52px" height="77px"/>
+                </g>
+            </g>
+        </g>
+        <g id="path1950" transform="matrix(0.860942,-0.493771,0.548584,0.956514,426.885,523.504)">
+            <clipPath id="_clip12">
+                <path d="M85.638,28.657L85.638,40.563C85.638,49.794 77.812,57.563 68.888,57.563C34.422,33.836 33.596,41.362 42.106,57.563C34.77,57.563 28.7,63.842 28.7,71.188L28.7,96.72C28.7,103.986 35.019,108.26 42.106,110.345C50.594,112.84 58.733,113.291 68.888,110.345C75.638,108.39 82.294,104.457 82.294,96.72L82.294,86.501L55.513,86.501L55.513,83.095L95.7,83.095C103.493,83.095 106.396,77.659 109.106,69.501C111.906,61.102 111.787,53.025 109.106,42.251C107.181,34.493 103.502,28.657 95.7,28.657L85.638,28.657ZM70.575,93.313C73.355,93.313 75.606,95.591 75.606,98.407C75.606,101.234 73.355,103.532 70.575,103.532C67.805,103.532 65.544,101.234 65.544,98.407C65.544,95.591 67.805,93.313 70.575,93.313Z" clip-rule="nonzero"/>
+            </clipPath>
+            <g clip-path="url(#_clip12)">
+                <g transform="matrix(1.22602,0.632894,-0.703151,1.10352,-199.999,-813.779)">
+                    <use xlink:href="#_Image13" x="481.383" y="469.26" width="55px" height="77px"/>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,-0.992645,-49.9387)">
+        <path d="M0,282.047C0,282.047 172.974,218.136 318.581,164.337C445.585,117.412 585.418,118.882 711.407,168.467C845.779,221.351 1000,282.047 1000,282.047" style="fill:none;stroke:black;stroke-width:16.93px;stroke-linecap:square;"/>
+    </g>
+    <g transform="matrix(1,0,0,-1,0,1029.39)">
+        <path d="M0,282.047C0,282.047 172.974,218.136 318.581,164.337C445.585,117.412 585.418,118.882 711.407,168.467C845.779,221.351 1000,282.047 1000,282.047" style="fill:none;stroke:black;stroke-width:16.48px;stroke-linecap:square;"/>
+    </g>
+    <defs>
+        <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-20.357,-60.259,60.259,-20.357,1436.27,500.315)"><stop offset="0" style="stop-color:rgb(184,51,51);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(184,51,51);stop-opacity:0"/></linearGradient>
+        <linearGradient id="_Linear2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-20.357,-60.259,60.259,-20.357,1436.27,500.315)"><stop offset="0" style="stop-color:black;stop-opacity:1"/><stop offset="1" style="stop-color:black;stop-opacity:0"/></linearGradient>
+        <linearGradient id="_Linear3" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-20.357,-60.259,60.259,-20.357,1436.27,500.315)"><stop offset="0" style="stop-color:rgb(144,144,144);stop-opacity:0.46"/><stop offset="1" style="stop-color:rgb(144,144,144);stop-opacity:0"/></linearGradient>
+        <linearGradient id="_Linear4" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-20.357,-60.259,60.259,-20.357,1436.27,500.315)"><stop offset="0" style="stop-color:black;stop-opacity:1"/><stop offset="1" style="stop-color:black;stop-opacity:0"/></linearGradient>
+        <linearGradient id="_Linear8" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1470.43,-3398.3,3398.3,1470.43,1160.96,3493.94)"><stop offset="0" style="stop-color:rgb(107,170,217);stop-opacity:0.71"/><stop offset="1" style="stop-color:rgb(107,170,217);stop-opacity:0"/></linearGradient>
+        <linearGradient id="_Linear9" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1470.43,-3398.3,3398.3,1470.43,1160.96,3493.94)"><stop offset="0" style="stop-color:black;stop-opacity:1"/><stop offset="1" style="stop-color:black;stop-opacity:0"/></linearGradient>
+        <image id="_Image11" width="52px" height="77px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAABNCAYAAADpVUfiAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEvUlEQVRogd2b204UQRCG/53wQCQ+gYB4Qn0Eo8YDibfqhYkSUYkaFTQgF74EKqCEGI1eKQJPtOXFTs/0obq7erZnd4dKWKZ7qk9VXd/M9Ez30ILMLG0REYEIABEGx30AKI8JoD6IUB5TlU+o03/eXu2ltj2VcyCzTz6T6uBASPuDlVenyc4jW0cuyRbgZG55m1Ba17a4cwwC9U1PePWI8Hf1WlIfi2EHc+bpTm1Kxqi2bySGl+px0thD88+/ks/CVE4Zr/UZHa8eCAdr18X9TI6hcyt7VAWvJo5BJZ6QhEqip8QjP/9in2rLlYSKxQFDrpAnHC9rx//e3xD1VRRDF17uk6KT4ZmKaC7FDMOSbWY+2ELOOHX3o8hXwSl38dV3dno5nSqjmJiBVXpkpaGXiSGb7wEnrBsXXv+gUACzU6MFZJvnAFAfh+u3glPPmXKX3vz0G4OMf+w5X9bwyJb5qBrt5dVfZFuviSdyI5vrw9HGba+Xpq6s/S7rdy3QxBN2hs+uUmQz3QqKNuWIqYEP0BiRfEVzGAgAphc3vc0XbAkvilORzZk4Hdmcnm9QhabrtuttSIpslcyAbOHUYy+s5E0E9CTnKgNx0zgyWCYkOC8V4iuWANm+AB4VsgHdQ4F5LCJNomGCxSSgKMX2UuGzSheRDRiUy4PsykAtIZsT3UtFDmTXAWyVy4XsIHEHogZVsM0kIpstXCUzINvQCYuD7WRkJ8RfM2RzBuFlenGTZIskIWQrldaQnSaFqq0JskNeChcIFEtANifshbXxtW3MyAYqyjVBttviOJBtixlDSchWGuNHti5FE2ST+eMWrpJNka0MCUsnLoaHpMgO6eRBtl6bDNlK4tjuELKBknInBdlA7E7BygxWPgHIBhS2hcg2dRyNsSMbMB7wYsimiUc24FyH4hVkRXbjxX6/8Ks+OQM4hGzjcHhkAwFsiwIYfuMlITujuHcKghYnFdlA6E4hpfIJQTYAFCFkVwHcEWQD1QNe3Zv6l0FxFmRTa8gGrIXGWOk8yNZ0MiMb4FZ9OoxswLdY31FkA6HXKZ7MxsgmMyluJ1FEy1hZkC1oZFhkA/badseRDVjXoa4jG9Bfp7SGbIXi9pENcI8P/qQ3M4zsgHZmZAPcI3hOZAfqaQPZgO91iiczGdmWftvIBgTY7hKyAX1t+wQgG3DuFHIhmwvE9pENqNcp2ZFtnh8VsgGg2L4306t7bTbhiHTajAnZQDnldu7P9oBMyGYTAb3MwlOuo8gGtAHtPphzvhIUITsQwKNGNsAu1icim8sXZLaB7OMPd3qOV86ufCPn+09QCac+6nPAYMuM+oYUqLbVkNIvyzf8cD1lIOpYdqfgRbaeHA+y9cEAnu+2vRs1LAvr5zgLx774DX81nDaQ4IAAYP7ZLrGd6JcWjUwbn474w/XEgSgR7U5xkC2dERmRHRuIEm8M7T08H69gRMiWDgYQeciFQZvI1s+lDERJtMDc8hc3ljIj247T48BWgJjEPSQx+5DIVnK0Ed55IpHodWj/0UJvFHfZh+s3s+zYFFcys/SJmuw8iSH74J1sK5pU0jfmZkJ2ys7HFEmq9PTjLaos3HCvUZPt0CmSuDF3OGS3PRgA+A8QP3UsZxcCrgAAAABJRU5ErkJggg=="/>
+        <image id="_Image13" width="55px" height="77px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAABNCAYAAAACYvzhAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAE00lEQVR4nL1bW4oVMRCtDLOI8csX6o9rED8ENzEgCILgp+sQ1+CHCIIgCO7AJfj4HF/gKiZ+3EnfpHKqUpVHHxD7plPVOTmVczs9twPtiPjvZcQnLonokijG7PiSiK4+Z23h+ptgvd7plFE3IJI6nGXH2ecYj21KBgkn/hAfdGJbL0aEHx/7xItzM81lytlIkaBOTor1ccBcv1aYSR16Z2uqXl9123FNhpvvmmOfRs5HKgVJRgLaYsyOrwjeeq+Of8qa6yIGjSRmp/Ca85TmkHJ9pLbougyBOq2vh3D7g8ihy1DGSKUkmpEABbc25KQYLuWmkDpkchoJUvXYJ9z5CHmY19w8YsTUyZXR1FG+CwU0lZtK6pCxVgK6o0HBLC7c/VRxEcnNJ5USZ4N2GUl7AsK9zwWfylCWkSqvQqrNQyNBcaSWZ7Hm1hPj6wUNjq3BipS8LuOPx8X4T4n2UotIVCfKA66NJIuDk3LEyW7EWkq0Si6yPML3Y/z+aGtdvuUpB1oOpCAm2jwo16aqB+xHjg9wa9LUoWzAdlXjt4eRaDdyNkOo1emNI4pfH8R9yLWMhIQ2tVTRWi0nYAdyHiPR1OG5CMSV+daTU+8HJUNoTYAtbjE5MOvbR8EQqg2ppg7PXcbtU5bGJ1t+VbVcq5XrfbLVPQHl+YXkWoPj/yRSBEjxvtk1s7h15NwbUmAkvRvZKywih4wEGQJSgvVpxUEzOWBtWVpsXi1VJU7MdcQact1PtvigeZxkJMTOH7CAnHFwFnU6jSRhPrkpT7aIxfHzupEkTCYnDY7KtqENKYgTMJdc79YFlauoqlQNNXZYc0R9RkJkU1VWbyK5hjrwftAax0lxVTHmkevakBqMpIpDZY0xiVxDiaY6LA80ktbE1ZhDrvsLF5WqIa7a82HMX3P5RWfYPIorriljAjmHIUSlDR5n+R1GkjBOzrIePBtSsVTtRpIwSE6acWmwEimei1jf9J/NSBLGyLW2LiZDsJS1z0gSBsiBWYeznPWpBsdJ5XEoP7q2jPGybKrDjs1xWi4b+sm5N6QoTiCL2lCuBjrJGQcnrj+BLGqrJs6Ok3D2yv8roikb0s44Dzk3MVhyDUNQ7ziUOJ7fiRMiIpd6vVsXVK6tjWzV1kHOTdBlJF5VlYlzwlmW2oxLRoLiOCmkanbNDtWIGLmmek11LEbC4xgxdeIGyOkwlo77GQgxIsSu0Y+KnKieaQuCZtwTx/oNlCQkp8OrDpUD7lW1E5BcrV6PIaBjaxyx44nkiBhBz527qA4vVclIWNwADGUpmYZxcHACss+DG1INKrlw9iqs3bq04haSK8EuatnyoLaCCM/NVR5Dk1y49lpWr3c/Jj6SIHa8mNzxgvmxoCBqQ44oTsAcI0kw3yzHvy+i9SWi6sfVnl+cpz4jpO5/CS5yRETxz/No/5k8H7Dj5/WDpBL8m1XJrpFpuJ5szVGraPMmib+fRVEJ46thuqo+kohUQseLSkAJVR2nkxqhkdr6mLNliL+eRpM6PS8fTSCVsObRXqWq5/tRhocY0cDLgfHnk9h+iUh/NaxSdRKpLa4nKCFenMvm4nyLCinXSyph8FXqhs2bNqR1SY6SShj6Q0i48TbUa4rk9WW4j5xFjGjGS/BdT7ZYHM0llfAf6gUUko8DCSYAAAAASUVORK5CYII="/>
+    </defs>
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SpinView
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Using physically based rendering (PBR)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MXJK851/SpinView/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SpinView
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../installation/" class="md-tabs__link">
+          
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Get_help/" class="md-tabs__link">
+          
+  
+  Running the code
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../quick_object_change/" class="md-tabs__link">
+          
+  
+  Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Internal_beta_test/" class="md-tabs__link">
+          
+  
+  Blogs
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SpinView" class="md-nav__button md-logo" aria-label="SpinView" data-md-component="logo">
+      
+  
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(0.60623,-0.279735,0.279735,0.60623,-1030.3,386.063)">
+        <circle cx="2019.47" cy="1095.78" r="517.898" style="fill:url(#_Linear1);stroke:url(#_Linear2);stroke-width:23.96px;"/>
+    </g>
+    <g transform="matrix(0.444206,1.97869e-17,-1.97869e-17,0.444206,-396.572,-1.31062)">
+        <circle cx="2019.47" cy="1095.78" r="517.898" style="fill:url(#_Linear3);stroke:url(#_Linear4);stroke-width:36.02px;"/>
+    </g>
+    <g transform="matrix(0.245105,0.552839,-0.552839,0.245105,700.832,-748.476)">
+        <circle cx="2013.32" cy="868.582" r="29.593" style="stroke:black;stroke-width:26.46px;"/>
+    </g>
+    <g transform="matrix(-0.245105,0.552839,0.552839,0.245105,300.144,-748.476)">
+        <circle cx="2013.32" cy="868.582" r="29.593" style="stroke:black;stroke-width:26.46px;"/>
+    </g>
+    <g transform="matrix(-0.598461,0.345522,0.519058,0.899035,623.986,-469.086)">
+        <clipPath id="_clip5">
+            <rect x="1071.92" y="606.422" width="283.925" height="193.053"/>
+        </clipPath>
+        <g clip-path="url(#_clip5)">
+            <path d="M907.691,716.876L907.691,756.226L907.691,667.848L907.691,707.198L1236.57,707.198L1236.57,667.848L1328.27,712.037L1236.57,756.226L1236.57,716.876L907.691,716.876Z" style="stroke:black;stroke-width:6.8px;"/>
+        </g>
+    </g>
+    <g transform="matrix(0.598461,0.345522,-0.519058,0.899035,379.377,-469.086)">
+        <clipPath id="_clip6">
+            <rect x="1071.92" y="606.422" width="283.925" height="193.053"/>
+        </clipPath>
+        <g clip-path="url(#_clip6)">
+            <path d="M907.691,716.876L907.691,756.226L907.691,667.848L907.691,707.198L1236.57,707.198L1236.57,667.848L1328.27,712.037L1236.57,756.226L1236.57,716.876L907.691,716.876Z" style="stroke:black;stroke-width:6.8px;"/>
+        </g>
+    </g>
+    <g transform="matrix(-5.55112e-17,-0.691044,1.03812,6.66134e-16,-239.622,1068.3)">
+        <clipPath id="_clip7">
+            <rect x="1071.92" y="606.422" width="283.925" height="193.053"/>
+        </clipPath>
+        <g clip-path="url(#_clip7)">
+            <path d="M907.691,716.876L907.691,756.226L907.691,667.848L907.691,707.198L1236.57,707.198L1236.57,667.848L1328.27,712.037L1236.57,756.226L1236.57,716.876L907.691,716.876Z" style="stroke:black;stroke-width:6.8px;"/>
+        </g>
+    </g>
+    <g transform="matrix(0.217601,-0.564232,0.564232,0.217601,-429.174,1204.31)">
+        <circle cx="2013.32" cy="868.582" r="29.593" style="stroke:black;stroke-width:26.46px;"/>
+    </g>
+    <g transform="matrix(0.712898,0,0,0.712898,136.683,111.307)">
+        <g transform="matrix(0.201743,-0.093091,0.093091,0.201743,0.89736,491.737)">
+            <circle cx="2019.47" cy="1095.78" r="517.898" style="fill:url(#_Linear8);stroke:url(#_Linear9);stroke-width:101.01px;"/>
+        </g>
+        <g id="path1948" transform="matrix(0.860942,-0.493771,0.548584,0.956514,445.348,474.671)">
+            <clipPath id="_clip10">
+                <path d="M54.919,0.001C50.335,0.022 45.958,0.413 42.106,1.095C30.76,3.099 28.7,7.295 28.7,15.032L28.7,25.251L55.513,25.251L55.513,28.657L18.638,28.657C10.845,28.657 4.022,33.341 1.888,42.251C-0.574,52.464 -0.683,58.837 1.888,69.501C3.793,77.439 8.345,83.095 16.138,83.095L25.356,83.095L25.356,70.845C25.356,61.995 33.013,54.188 42.106,54.188L68.888,54.188C76.342,54.188 82.294,48.05 82.294,40.563L82.294,15.032C82.294,7.766 76.164,2.307 68.888,1.095C64.282,0.328 59.502,-0.02 54.919,0.001ZM40.419,8.22C43.188,8.22 45.45,10.518 45.45,13.345C45.45,16.161 43.188,18.438 40.419,18.438C37.639,18.438 35.388,16.161 35.388,13.345C35.388,10.518 37.639,8.22 40.419,8.22Z" clip-rule="nonzero"/>
+            </clipPath>
+            <g clip-path="url(#_clip10)">
+                <g transform="matrix(1.22602,0.632894,-0.703151,1.10352,-240.615,-783.693)">
+                    <use xlink:href="#_Image11" x="471.039" y="425.515" width="52px" height="77px"/>
+                </g>
+            </g>
+        </g>
+        <g id="path1950" transform="matrix(0.860942,-0.493771,0.548584,0.956514,426.885,523.504)">
+            <clipPath id="_clip12">
+                <path d="M85.638,28.657L85.638,40.563C85.638,49.794 77.812,57.563 68.888,57.563C34.422,33.836 33.596,41.362 42.106,57.563C34.77,57.563 28.7,63.842 28.7,71.188L28.7,96.72C28.7,103.986 35.019,108.26 42.106,110.345C50.594,112.84 58.733,113.291 68.888,110.345C75.638,108.39 82.294,104.457 82.294,96.72L82.294,86.501L55.513,86.501L55.513,83.095L95.7,83.095C103.493,83.095 106.396,77.659 109.106,69.501C111.906,61.102 111.787,53.025 109.106,42.251C107.181,34.493 103.502,28.657 95.7,28.657L85.638,28.657ZM70.575,93.313C73.355,93.313 75.606,95.591 75.606,98.407C75.606,101.234 73.355,103.532 70.575,103.532C67.805,103.532 65.544,101.234 65.544,98.407C65.544,95.591 67.805,93.313 70.575,93.313Z" clip-rule="nonzero"/>
+            </clipPath>
+            <g clip-path="url(#_clip12)">
+                <g transform="matrix(1.22602,0.632894,-0.703151,1.10352,-199.999,-813.779)">
+                    <use xlink:href="#_Image13" x="481.383" y="469.26" width="55px" height="77px"/>
+                </g>
+            </g>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,-0.992645,-49.9387)">
+        <path d="M0,282.047C0,282.047 172.974,218.136 318.581,164.337C445.585,117.412 585.418,118.882 711.407,168.467C845.779,221.351 1000,282.047 1000,282.047" style="fill:none;stroke:black;stroke-width:16.93px;stroke-linecap:square;"/>
+    </g>
+    <g transform="matrix(1,0,0,-1,0,1029.39)">
+        <path d="M0,282.047C0,282.047 172.974,218.136 318.581,164.337C445.585,117.412 585.418,118.882 711.407,168.467C845.779,221.351 1000,282.047 1000,282.047" style="fill:none;stroke:black;stroke-width:16.48px;stroke-linecap:square;"/>
+    </g>
+    <defs>
+        <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-20.357,-60.259,60.259,-20.357,1436.27,500.315)"><stop offset="0" style="stop-color:rgb(184,51,51);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(184,51,51);stop-opacity:0"/></linearGradient>
+        <linearGradient id="_Linear2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-20.357,-60.259,60.259,-20.357,1436.27,500.315)"><stop offset="0" style="stop-color:black;stop-opacity:1"/><stop offset="1" style="stop-color:black;stop-opacity:0"/></linearGradient>
+        <linearGradient id="_Linear3" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-20.357,-60.259,60.259,-20.357,1436.27,500.315)"><stop offset="0" style="stop-color:rgb(144,144,144);stop-opacity:0.46"/><stop offset="1" style="stop-color:rgb(144,144,144);stop-opacity:0"/></linearGradient>
+        <linearGradient id="_Linear4" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-20.357,-60.259,60.259,-20.357,1436.27,500.315)"><stop offset="0" style="stop-color:black;stop-opacity:1"/><stop offset="1" style="stop-color:black;stop-opacity:0"/></linearGradient>
+        <linearGradient id="_Linear8" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1470.43,-3398.3,3398.3,1470.43,1160.96,3493.94)"><stop offset="0" style="stop-color:rgb(107,170,217);stop-opacity:0.71"/><stop offset="1" style="stop-color:rgb(107,170,217);stop-opacity:0"/></linearGradient>
+        <linearGradient id="_Linear9" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1470.43,-3398.3,3398.3,1470.43,1160.96,3493.94)"><stop offset="0" style="stop-color:black;stop-opacity:1"/><stop offset="1" style="stop-color:black;stop-opacity:0"/></linearGradient>
+        <image id="_Image11" width="52px" height="77px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAABNCAYAAADpVUfiAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEvUlEQVRogd2b204UQRCG/53wQCQ+gYB4Qn0Eo8YDibfqhYkSUYkaFTQgF74EKqCEGI1eKQJPtOXFTs/0obq7erZnd4dKWKZ7qk9VXd/M9Ez30ILMLG0REYEIABEGx30AKI8JoD6IUB5TlU+o03/eXu2ltj2VcyCzTz6T6uBASPuDlVenyc4jW0cuyRbgZG55m1Ba17a4cwwC9U1PePWI8Hf1WlIfi2EHc+bpTm1Kxqi2bySGl+px0thD88+/ks/CVE4Zr/UZHa8eCAdr18X9TI6hcyt7VAWvJo5BJZ6QhEqip8QjP/9in2rLlYSKxQFDrpAnHC9rx//e3xD1VRRDF17uk6KT4ZmKaC7FDMOSbWY+2ELOOHX3o8hXwSl38dV3dno5nSqjmJiBVXpkpaGXiSGb7wEnrBsXXv+gUACzU6MFZJvnAFAfh+u3glPPmXKX3vz0G4OMf+w5X9bwyJb5qBrt5dVfZFuviSdyI5vrw9HGba+Xpq6s/S7rdy3QxBN2hs+uUmQz3QqKNuWIqYEP0BiRfEVzGAgAphc3vc0XbAkvilORzZk4Hdmcnm9QhabrtuttSIpslcyAbOHUYy+s5E0E9CTnKgNx0zgyWCYkOC8V4iuWANm+AB4VsgHdQ4F5LCJNomGCxSSgKMX2UuGzSheRDRiUy4PsykAtIZsT3UtFDmTXAWyVy4XsIHEHogZVsM0kIpstXCUzINvQCYuD7WRkJ8RfM2RzBuFlenGTZIskIWQrldaQnSaFqq0JskNeChcIFEtANifshbXxtW3MyAYqyjVBttviOJBtixlDSchWGuNHti5FE2ST+eMWrpJNka0MCUsnLoaHpMgO6eRBtl6bDNlK4tjuELKBknInBdlA7E7BygxWPgHIBhS2hcg2dRyNsSMbMB7wYsimiUc24FyH4hVkRXbjxX6/8Ks+OQM4hGzjcHhkAwFsiwIYfuMlITujuHcKghYnFdlA6E4hpfIJQTYAFCFkVwHcEWQD1QNe3Zv6l0FxFmRTa8gGrIXGWOk8yNZ0MiMb4FZ9OoxswLdY31FkA6HXKZ7MxsgmMyluJ1FEy1hZkC1oZFhkA/badseRDVjXoa4jG9Bfp7SGbIXi9pENcI8P/qQ3M4zsgHZmZAPcI3hOZAfqaQPZgO91iiczGdmWftvIBgTY7hKyAX1t+wQgG3DuFHIhmwvE9pENqNcp2ZFtnh8VsgGg2L4306t7bTbhiHTajAnZQDnldu7P9oBMyGYTAb3MwlOuo8gGtAHtPphzvhIUITsQwKNGNsAu1icim8sXZLaB7OMPd3qOV86ufCPn+09QCac+6nPAYMuM+oYUqLbVkNIvyzf8cD1lIOpYdqfgRbaeHA+y9cEAnu+2vRs1LAvr5zgLx774DX81nDaQ4IAAYP7ZLrGd6JcWjUwbn474w/XEgSgR7U5xkC2dERmRHRuIEm8M7T08H69gRMiWDgYQeciFQZvI1s+lDERJtMDc8hc3ljIj247T48BWgJjEPSQx+5DIVnK0Ed55IpHodWj/0UJvFHfZh+s3s+zYFFcys/SJmuw8iSH74J1sK5pU0jfmZkJ2ys7HFEmq9PTjLaos3HCvUZPt0CmSuDF3OGS3PRgA+A8QP3UsZxcCrgAAAABJRU5ErkJggg=="/>
+        <image id="_Image13" width="55px" height="77px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAABNCAYAAAACYvzhAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAE00lEQVR4nL1bW4oVMRCtDLOI8csX6o9rED8ENzEgCILgp+sQ1+CHCIIgCO7AJfj4HF/gKiZ+3EnfpHKqUpVHHxD7plPVOTmVczs9twPtiPjvZcQnLonokijG7PiSiK4+Z23h+ptgvd7plFE3IJI6nGXH2ecYj21KBgkn/hAfdGJbL0aEHx/7xItzM81lytlIkaBOTor1ccBcv1aYSR16Z2uqXl9123FNhpvvmmOfRs5HKgVJRgLaYsyOrwjeeq+Of8qa6yIGjSRmp/Ca85TmkHJ9pLbougyBOq2vh3D7g8ihy1DGSKUkmpEABbc25KQYLuWmkDpkchoJUvXYJ9z5CHmY19w8YsTUyZXR1FG+CwU0lZtK6pCxVgK6o0HBLC7c/VRxEcnNJ5USZ4N2GUl7AsK9zwWfylCWkSqvQqrNQyNBcaSWZ7Hm1hPj6wUNjq3BipS8LuOPx8X4T4n2UotIVCfKA66NJIuDk3LEyW7EWkq0Si6yPML3Y/z+aGtdvuUpB1oOpCAm2jwo16aqB+xHjg9wa9LUoWzAdlXjt4eRaDdyNkOo1emNI4pfH8R9yLWMhIQ2tVTRWi0nYAdyHiPR1OG5CMSV+daTU+8HJUNoTYAtbjE5MOvbR8EQqg2ppg7PXcbtU5bGJ1t+VbVcq5XrfbLVPQHl+YXkWoPj/yRSBEjxvtk1s7h15NwbUmAkvRvZKywih4wEGQJSgvVpxUEzOWBtWVpsXi1VJU7MdcQact1PtvigeZxkJMTOH7CAnHFwFnU6jSRhPrkpT7aIxfHzupEkTCYnDY7KtqENKYgTMJdc79YFlauoqlQNNXZYc0R9RkJkU1VWbyK5hjrwftAax0lxVTHmkevakBqMpIpDZY0xiVxDiaY6LA80ktbE1ZhDrvsLF5WqIa7a82HMX3P5RWfYPIorriljAjmHIUSlDR5n+R1GkjBOzrIePBtSsVTtRpIwSE6acWmwEimei1jf9J/NSBLGyLW2LiZDsJS1z0gSBsiBWYeznPWpBsdJ5XEoP7q2jPGybKrDjs1xWi4b+sm5N6QoTiCL2lCuBjrJGQcnrj+BLGqrJs6Ok3D2yv8roikb0s44Dzk3MVhyDUNQ7ziUOJ7fiRMiIpd6vVsXVK6tjWzV1kHOTdBlJF5VlYlzwlmW2oxLRoLiOCmkanbNDtWIGLmmek11LEbC4xgxdeIGyOkwlo77GQgxIsSu0Y+KnKieaQuCZtwTx/oNlCQkp8OrDpUD7lW1E5BcrV6PIaBjaxyx44nkiBhBz527qA4vVclIWNwADGUpmYZxcHACss+DG1INKrlw9iqs3bq04haSK8EuatnyoLaCCM/NVR5Dk1y49lpWr3c/Jj6SIHa8mNzxgvmxoCBqQ44oTsAcI0kw3yzHvy+i9SWi6sfVnl+cpz4jpO5/CS5yRETxz/No/5k8H7Dj5/WDpBL8m1XJrpFpuJ5szVGraPMmib+fRVEJ46thuqo+kohUQseLSkAJVR2nkxqhkdr6mLNliL+eRpM6PS8fTSCVsObRXqWq5/tRhocY0cDLgfHnk9h+iUh/NaxSdRKpLa4nKCFenMvm4nyLCinXSyph8FXqhs2bNqR1SY6SShj6Q0i48TbUa4rk9WW4j5xFjGjGS/BdT7ZYHM0llfAf6gUUko8DCSYAAAAASUVORK5CYII="/>
+    </defs>
+</svg>
+
+    </a>
+    SpinView
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MXJK851/SpinView/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SpinView
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Method 1(recommend)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Method 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Running the code
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Running the code
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Get_help/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Help functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running the SpinView
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Features
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Features
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick_object_change/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick object change
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change_color/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Color component
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change_opacity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Opacity component
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change_size/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Size
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change_reslution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reslution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change_background_and_cmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Background and Color Map
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick_camera_operation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Camera settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Using physically based rendering (PBR)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Using physically based rendering (PBR)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-without-pbr-default-and-with-pbr" class="md-nav__link">
+    0. Without PBR (default) and with PBR:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-increase-metallic" class="md-nav__link">
+    1. increase Metallic :
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-increase-roughness" class="md-nav__link">
+    2. increase Roughness :
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overlap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overlap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../denoise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Denoise
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Projection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../component_filter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Component filter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../clip_filter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Face Clip filter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rescale_filter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rescale Filter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../isosurface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Isosurface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../share_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Share result
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../store_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Store user profile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reuse_database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reload profile from database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Blogs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Blogs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Internal_beta_test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Internal beta test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-without-pbr-default-and-with-pbr" class="md-nav__link">
+    0. Without PBR (default) and with PBR:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-increase-metallic" class="md-nav__link">
+    1. increase Metallic :
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-increase-roughness" class="md-nav__link">
+    2. increase Roughness :
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="using-physically-based-rendering-pbr">Using physically based rendering (PBR)<a class="headerlink" href="#using-physically-based-rendering-pbr" title="Permanent link">&para;</a></h1>
+<h2 id="0-without-pbr-default-and-with-pbr">0. Without PBR (default) and with PBR:<a class="headerlink" href="#0-without-pbr-default-and-with-pbr" title="Permanent link">&para;</a></h2>
+<p>without pbr:</p>
+<div style="text-align: center;">
+<img width=300, height=300 src="/SpinView/assets/gif/without_pbr.gif" draggable="false">
+</div>
+
+<p>with pbr:</p>
+<div style="text-align: center;">
+<img width=300, height=300 src="/SpinView/assets/gif/with_pbr.gif" draggable="false">
+</div>
+
+<h2 id="1-increase-metallic">1. increase <code>Metallic</code> :<a class="headerlink" href="#1-increase-metallic" title="Permanent link">&para;</a></h2>
+<div style="text-align: center;">
+<img width=300, height=300 src="/SpinView/assets/gif/increase_Metallic.gif" draggable="false">
+</div>
+
+<h2 id="2-increase-roughness">2. increase <code>Roughness</code> :<a class="headerlink" href="#2-increase-roughness" title="Permanent link">&para;</a></h2>
+<div style="text-align: center;">
+<img width=300, height=300 src="/SpinView/assets/gif/increase_Roughness.gif" draggable="false">
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        
+        <div class="md-footer-copyright__highlight">
+          QichenXu
+        </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+      <div class="md-social">
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "navigation.tabs", "navigation.top"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js"></script>
+      
+        <script src="../js/termynal.js"></script>
+      
+        <script src="../js/custom.js"></script>
+      
+    
+  </body>
+</html>

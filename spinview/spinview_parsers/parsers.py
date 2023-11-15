@@ -2,10 +2,22 @@ import pandas as pd
 import numpy as np
 import os
 import glob
+import struct
+
+
+import numpy as np
+import re
+
 
 """
 Spirit output file parser
 """
+
+
+# def Ovf_file_checking(filename):
+#     with open(filename, "rb") as f:
+#         chunk = f.read(10240)
+#     return b"\0" in chunk
 
 
 def ovf_spirit_parser(OVF_file_name):
@@ -13,110 +25,192 @@ def ovf_spirit_parser(OVF_file_name):
     Parser for the OVF file
     Test with Spirit code output OVF file
     """
-    # Find out which one is not start with #
-    list_ovf_key = [
-        "# xmin:",
-        "# ymin:",
-        "# zmin:",
-        "# xmax:",
-        "# ymax:",
-        "# zmax:",
-        "# xnodes:",
-        "# ynodes:",
-        "# znodes:",
-        "# xstepsize:",
-        "# ystepsize:",
-        "# zstepsize:",
-    ]
+    try:
+        # this case it is a ascii file
+        # Find out which one is not start with #
+        list_ovf_key = [
+            "# xmin:",
+            "# ymin:",
+            "# zmin:",
+            "# xmax:",
+            "# ymax:",
+            "# zmax:",
+            "# xnodes:",
+            "# ynodes:",
+            "# znodes:",
+            "# xstepsize:",
+            "# ystepsize:",
+            "# zstepsize:",
+        ]
 
-    dict_ovf_keys = {}
+        dict_ovf_keys = {}
 
-    moment_start_index = 0
-    with open(OVF_file_name) as f:
-        for line in f:
-            if not line.lstrip().startswith("#"):
-                break
-            else:
-                for name in list_ovf_key:
-                    if line.lstrip().startswith(name):
-                        dict_ovf_keys[name.lstrip("# ").rstrip(":")] = float(
-                            line.lstrip(name)
-                        )
-                moment_start_index = moment_start_index + 1
+        moment_start_index = 0
+        with open(OVF_file_name) as f:
+            for line in f:
+                if not line.lstrip().startswith("#"):
+                    break
+                else:
+                    for name in list_ovf_key:
+                        if line.lstrip().startswith(name):
+                            dict_ovf_keys[name.lstrip("# ").rstrip(":")] = float(
+                                line.lstrip(name)
+                            )
+                    moment_start_index = moment_start_index + 1
 
-    a0 = dict_ovf_keys["xmin"]
-    a1 = dict_ovf_keys["xmax"]
-    b0 = dict_ovf_keys["ymin"]
-    b1 = dict_ovf_keys["ymax"]
-    c0 = dict_ovf_keys["zmin"]
-    c1 = dict_ovf_keys["zmax"]
-    gap_x = dict_ovf_keys["xstepsize"]
-    gap_y = dict_ovf_keys["ystepsize"]
-    gap_z = dict_ovf_keys["zstepsize"]
-    normal_helper = min(gap_x, gap_y, gap_z)
-    a0 = a0 / normal_helper
-    a1 = a1 / normal_helper
-    b0 = b0 / normal_helper
-    b1 = b1 / normal_helper
-    c0 = c0 / normal_helper
-    c1 = c1 / normal_helper
+        a0 = dict_ovf_keys["xmin"]
+        a1 = dict_ovf_keys["xmax"]
+        b0 = dict_ovf_keys["ymin"]
+        b1 = dict_ovf_keys["ymax"]
+        c0 = dict_ovf_keys["zmin"]
+        c1 = dict_ovf_keys["zmax"]
+        gap_x = dict_ovf_keys["xstepsize"]
+        gap_y = dict_ovf_keys["ystepsize"]
+        gap_z = dict_ovf_keys["zstepsize"]
+        normal_helper = min(gap_x, gap_y, gap_z)
+        a0 = a0 / normal_helper
+        a1 = a1 / normal_helper
+        b0 = b0 / normal_helper
+        b1 = b1 / normal_helper
+        c0 = c0 / normal_helper
+        c1 = c1 / normal_helper
 
-    a_r = int(dict_ovf_keys["xnodes"])
-    b_r = int(dict_ovf_keys["ynodes"])
-    c_r = int(dict_ovf_keys["znodes"])
+        a_r = int(dict_ovf_keys["xnodes"])
+        b_r = int(dict_ovf_keys["ynodes"])
+        c_r = int(dict_ovf_keys["znodes"])
 
-    Z, Y, X = np.mgrid[c0 : c1 : c_r * 1j, b0 : b1 : b_r * 1j, a0 : a1 : a_r * 1j]
-    x = (X.flatten(),)
-    y = (Y.flatten(),)
-    z = (Z.flatten(),)
-    coord = np.vstack([x, y, z]).T
+        Z, Y, X = np.mgrid[c0 : c1 : c_r * 1j, b0 : b1 : b_r * 1j, a0 : a1 : a_r * 1j]
+        x = (X.flatten(),)
+        y = (Y.flatten(),)
+        z = (Z.flatten(),)
+        coord = np.vstack([x, y, z]).T
 
-    mom_output = pd.read_csv(
-        OVF_file_name,
-        sep="\s+",
-        header=None,
-        skiprows=moment_start_index,
-        skipfooter=2,
-        engine="python",
-    ).values
-    # replace 0,0,0 to np.nan
-    # mom_output.astype(np.float32)
-    # for i in range(len(mom_output)):
-    #     print(mom_output[i].all())
-    #     print(mom_output[i] == "[0 0 0]")
-    #     print(mom_output[i] == ["0 0 0"])
-    #     break
-    # if mom_output[i]== [0 0 0]:
-    #     mom_output[i] = [np.nan, np.nan, np.nan]
-    if 0 in mom_output.sum(axis=1):
-        print(
-            "There is [0, 0, 0] in the ovf file, we will replace it with np.nan to hiden those sites (Specially meshes detected)"
-        )
+        mom_output = pd.read_csv(
+            OVF_file_name,
+            sep="\s+",
+            header=None,
+            skiprows=moment_start_index,
+            skipfooter=2,
+            engine="python",
+        ).values
+        # replace 0,0,0 to np.nan
+        # mom_output.astype(np.float32)
+        # for i in range(len(mom_output)):
+        #     print(mom_output[i].all())
+        #     print(mom_output[i] == "[0 0 0]")
+        #     print(mom_output[i] == ["0 0 0"])
+        #     break
+        # if mom_output[i]== [0 0 0]:
+        #     mom_output[i] = [np.nan, np.nan, np.nan]
+        if 0 in mom_output.sum(axis=1):
+            print(
+                "There is [0, 0, 0] in the ovf file, we will replace it with np.nan to hiden those sites (Specially meshes detected)"
+            )
 
-        mom_output = mom_output.T
-        mom_x = mom_output[0]
-        mom_y = mom_output[1]
-        mom_z = mom_output[2]
-        mom_states_x = np.array(mom_x).astype(np.float32)
-        mom_states_y = np.array(mom_y).astype(np.float32)
-        mom_states_z = np.array(mom_z).astype(np.float32)
-        for i in range(len(mom_states_x)):
-            if (
-                mom_states_x[i] == 0.0
-                and mom_states_y[i] == 0.0
-                and mom_states_z[i] == 0.0
-            ):
-                mom_states_x[i] = np.nan
-                mom_states_y[i] = np.nan
-                mom_states_z[i] = np.nan
-    else:
-        mom_output = mom_output.T
-        mom_x = mom_output[0]
-        mom_y = mom_output[1]
-        mom_z = mom_output[2]
-        mom_states_x = np.array(mom_x).astype(np.float32)
-        mom_states_y = np.array(mom_y).astype(np.float32)
-        mom_states_z = np.array(mom_z).astype(np.float32)
+            mom_output = mom_output.T
+            mom_x = mom_output[0]
+            mom_y = mom_output[1]
+            mom_z = mom_output[2]
+            mom_states_x = np.array(mom_x).astype(np.float32)
+            mom_states_y = np.array(mom_y).astype(np.float32)
+            mom_states_z = np.array(mom_z).astype(np.float32)
+            for i in range(len(mom_states_x)):
+                if (
+                    mom_states_x[i] == 0.0
+                    and mom_states_y[i] == 0.0
+                    and mom_states_z[i] == 0.0
+                ):
+                    mom_states_x[i] = np.nan
+                    mom_states_y[i] = np.nan
+                    mom_states_z[i] = np.nan
+        else:
+            mom_output = mom_output.T
+            mom_x = mom_output[0]
+            mom_y = mom_output[1]
+            mom_z = mom_output[2]
+            mom_states_x = np.array(mom_x).astype(np.float32)
+            mom_states_y = np.array(mom_y).astype(np.float32)
+            mom_states_z = np.array(mom_z).astype(np.float32)
+    except:
+        list_ovf_key = [
+            "# xmin:",
+            "# ymin:",
+            "# zmin:",
+            "# xmax:",
+            "# ymax:",
+            "# zmax:",
+            "# xnodes:",
+            "# ynodes:",
+            "# znodes:",
+            "# xstepsize:",
+            "# ystepsize:",
+            "# zstepsize:",
+        ]
+
+        dict_ovf_keys = {}
+
+        moment_start_index = 0
+        with open(OVF_file_name, "rb") as f:
+            while True:
+                line = f.readline().strip()
+                if line == b"# Begin: Data Binary 4":
+                    break
+                else:
+                    for name in list_ovf_key:
+                        if line.decode("ascii").lstrip().startswith(name):
+                            dict_ovf_keys[name.lstrip("# ").rstrip(":")] = float(
+                                line.decode("ascii").lstrip(name)
+                            )
+                    moment_start_index = moment_start_index + 1
+
+        a0 = dict_ovf_keys["xmin"]
+        a1 = dict_ovf_keys["xmax"]
+        b0 = dict_ovf_keys["ymin"]
+        b1 = dict_ovf_keys["ymax"]
+        c0 = dict_ovf_keys["zmin"]
+        c1 = dict_ovf_keys["zmax"]
+        gap_x = dict_ovf_keys["xstepsize"]
+        gap_y = dict_ovf_keys["ystepsize"]
+        gap_z = dict_ovf_keys["zstepsize"]
+        normal_helper = min(gap_x, gap_y, gap_z)
+        a0 = a0 / normal_helper
+        a1 = a1 / normal_helper
+        b0 = b0 / normal_helper
+        b1 = b1 / normal_helper
+        c0 = c0 / normal_helper
+        c1 = c1 / normal_helper
+
+        a_r = int(dict_ovf_keys["xnodes"])
+        b_r = int(dict_ovf_keys["ynodes"])
+        c_r = int(dict_ovf_keys["znodes"])
+
+        Z, Y, X = np.mgrid[c0 : c1 : c_r * 1j, b0 : b1 : b_r * 1j, a0 : a1 : a_r * 1j]
+        x = (X.flatten(),)
+        y = (Y.flatten(),)
+        z = (Z.flatten(),)
+        coord = np.vstack([x, y, z]).T
+        #  @MathieuMoalic from https://github.com/MathieuMoalic
+        #  Qichen Thanks MathieuMoalic for sharing the code to parse the binary ovf file. Cheers!
+        #  Now it should works.
+        with open(OVF_file_name, "rb") as f:
+            dims = np.array([0, 0, 0, 0])
+            while True:
+                line = f.readline().strip().decode("ASCII")
+                if "valuedim" in line:
+                    dims[3] = int(line.split(" ")[-1])
+                if "xnodes" in line:
+                    dims[2] = int(line.split(" ")[-1])
+                if "ynodes" in line:
+                    dims[1] = int(line.split(" ")[-1])
+                if "znodes" in line:
+                    dims[0] = int(line.split(" ")[-1])
+                if "Begin: Data" in line:
+                    break
+            count = int(dims[0] * dims[1] * dims[2] * dims[3] + 1)
+            moment = np.fromfile(f, "<f4", count=count)[1:].reshape(dims)
+        mom_states_x = moment[:, :, :, 0].flatten()
+        mom_states_y = moment[:, :, :, 1].flatten()
+        mom_states_z = moment[:, :, :, 2].flatten()
 
     return mom_states_x, mom_states_y, mom_states_z, coord
 
@@ -184,6 +278,57 @@ def averages_file_paser(file_name_of_averages):
     M = np.array(list(np.array(result)[:, 4])).astype(float)
     M_stdv = np.array(list(np.array(result)[:, 5])).astype(float)
     return Iter_num_average, M_x, M_y, M_z, M, M_stdv
+
+
+def parse_Excalibur_bin_to_numpy(filename):
+    """
+    Parse a binary-output from the Excalibur code into numpy array.
+
+    The binary file should contain a sequence of 64-bit floats,
+    organized as triplets (mx, my, mz) for each point in a 3D grid.
+    The dimensions of the grid are extracted from the filename,
+    which should be in the format '..._3xNxMxL.bin'.
+
+    The full description of this code can be find in Phillip's nature physics paper:
+    https://www-nature-com.focus.lib.kth.se/articles/s41567-022-01638-4
+    or directly in the zenodo repo here:
+    https://zenodo.org/records/5930353
+    You can find the node file in the zenodo repo, which is the description file for output file.
+
+    Parameters:
+    filename (str): The name of the binary file to parse.
+
+    Returns:
+    numpy.ndarray: A 4D array with shape (3, N, M, L), where the first
+    dimension represents the component (0=mx, 1=my, 2=mz) and the other
+    three dimensions represent the position in the grid.
+
+    Raises:
+    ValueError: If the dimensions cannot be extracted from the filename.
+
+
+    """
+    match = re.search(r"(\d+)x(\d+)x(\d+)x(\d+)", filename)
+    if match is None:
+        raise ValueError("Could not extract dimensions from filename")
+    d, x, y, z = map(int, match.groups())
+    mom_output = np.fromfile(filename, dtype=np.double)
+    mom_output = mom_output.reshape(x, y, z, d)
+
+    mom_x = mom_output[:, :, :, 0].flatten()
+    mom_y = mom_output[:, :, :, 1].flatten()
+    mom_z = mom_output[:, :, :, 2].flatten()
+    mom_states_x = np.array(mom_x).astype(np.float32)
+    mom_states_y = np.array(mom_y).astype(np.float32)
+    mom_states_z = np.array(mom_z).astype(np.float32)
+
+    X, Y, Z = np.mgrid[0:x:1, 0:y:1, 0:z:1]
+    x_c = (X.flatten(order="F").astype(np.float32),)
+    y_c = (Y.flatten(order="F").astype(np.float32),)
+    z_c = (Z.flatten(order="F").astype(np.float32),)
+    coord = np.vstack([x_c, y_c, z_c]).T
+
+    return mom_states_x, mom_states_y, mom_states_z, coord
 
 
 def moment_csv_parser(mom_out_file):
@@ -266,28 +411,57 @@ def system_size_uppasd_parser(inpasd_path):
 
 
 def system_size_ovf_parser(ovfpath):
-    with open(ovfpath, "r") as infile:
-        lines = infile.readlines()
-        stop_i = 0
-        for idx, line in enumerate(lines):
-            stop_i = stop_i + 1
-            line_data = line.rstrip("\n")
-            if len(line_data) > 0:
-                if "# xnodes:" in line_data:
-                    system_size_x = int(line_data.lstrip("# xnodes:"))
-                if "# ynodes:" in line_data:
-                    system_size_y = int(line_data.lstrip("# ynodes:"))
-                if "# znodes:" in line_data:
-                    system_size_z = int(line_data.lstrip("# znodes:"))
-                if "# xstepsize:" in line_data:
-                    gap_x = float(line_data.lstrip("# xstepsize:"))
-                if "# ystepsize:" in line_data:
-                    gap_y = float(line_data.lstrip("# ystepsize:"))
-                if "# zstepsize:" in line_data:
-                    gap_z = float(line_data.lstrip("# zstepsize:"))
+    list_ovf_key = [
+        "# xmin:",
+        "# ymin:",
+        "# zmin:",
+        "# xmax:",
+        "# ymax:",
+        "# zmax:",
+        "# xnodes:",
+        "# ynodes:",
+        "# znodes:",
+        "# xstepsize:",
+        "# ystepsize:",
+        "# zstepsize:",
+    ]
 
-            if stop_i == 200:
-                break
+    dict_ovf_keys = {}
+
+    moment_start_index = 0
+    try:
+        with open(ovfpath) as f:
+            for line in f:
+                if not line.lstrip().startswith("#"):
+                    break
+                else:
+                    for name in list_ovf_key:
+                        if line.lstrip().startswith(name):
+                            dict_ovf_keys[name.lstrip("# ").rstrip(":")] = float(
+                                line.lstrip(name)
+                            )
+                    moment_start_index = moment_start_index + 1
+    except:
+        with open(ovfpath, "rb") as f:
+            for line in f:
+                line = line.strip()
+                if line == b"# Begin: Data Binary 4":
+                    break
+                else:
+                    for name in list_ovf_key:
+                        if line.lstrip().decode("ascii").startswith(name):
+                            dict_ovf_keys[name.lstrip("# ").rstrip(":")] = float(
+                                line.decode("ascii").lstrip(name)
+                            )
+                    moment_start_index = moment_start_index + 1
+
+    gap_x = dict_ovf_keys["xstepsize"]
+    gap_y = dict_ovf_keys["ystepsize"]
+    gap_z = dict_ovf_keys["zstepsize"]
+
+    system_size_x = int(dict_ovf_keys["xnodes"])
+    system_size_y = int(dict_ovf_keys["ynodes"])
+    system_size_z = int(dict_ovf_keys["znodes"])
 
     return system_size_x, system_size_y, system_size_z, gap_x, gap_y, gap_z
 
@@ -386,6 +560,36 @@ def parse_moment_and_coord_file(pyvista_LR, working_dir=os.getcwd()):
                     mom_states_z_temp,
                 ) = vampire_moment_parser(default_mom_path_list[i])
 
+                mom_states_x = np.concatenate((mom_states_x, mom_states_x_temp))
+                mom_states_y = np.concatenate((mom_states_y, mom_states_y_temp))
+                mom_states_z = np.concatenate((mom_states_z, mom_states_z_temp))
+        magnitudes = np.ones(len(mom_states_z))
+    elif outputfile_type == "Excalibur":
+        default_mom_path_list = glob.glob(
+            os.path.abspath(os.path.join(working_dir, mom_name + "*.bin"))
+        )
+
+        if len(default_mom_path_list) == 1:
+            (
+                mom_states_x,
+                mom_states_y,
+                mom_states_z,
+                coord,
+            ) = parse_Excalibur_bin_to_numpy(default_mom_path_list[0])
+        else:
+            (
+                mom_states_x,
+                mom_states_y,
+                mom_states_z,
+                coord,
+            ) = parse_Excalibur_bin_to_numpy(default_mom_path_list[0])
+            for i in range(1, len(default_mom_path_list)):
+                (
+                    mom_states_x_temp,
+                    mom_states_y_temp,
+                    mom_states_z_temp,
+                    coord_temp,
+                ) = parse_Excalibur_bin_to_numpy(default_mom_path_list[i])
                 mom_states_x = np.concatenate((mom_states_x, mom_states_x_temp))
                 mom_states_y = np.concatenate((mom_states_y, mom_states_y_temp))
                 mom_states_z = np.concatenate((mom_states_z, mom_states_z_temp))
@@ -496,6 +700,36 @@ def parse_moment_and_coord_file1(pyvista_LR, working_dir=os.getcwd()):
                 mom_states_y = np.concatenate((mom_states_y, mom_states_y_temp))
                 mom_states_z = np.concatenate((mom_states_z, mom_states_z_temp))
         magnitudes = np.ones(len(mom_states_z))
+    elif outputfile_type == "Excalibur":
+        default_mom_path_list = glob.glob(
+            os.path.abspath(os.path.join(working_dir, mom_name + "*.bin"))
+        )
+
+        if len(default_mom_path_list) == 1:
+            (
+                mom_states_x,
+                mom_states_y,
+                mom_states_z,
+                coord,
+            ) = parse_Excalibur_bin_to_numpy(default_mom_path_list[0])
+        else:
+            (
+                mom_states_x,
+                mom_states_y,
+                mom_states_z,
+                coord,
+            ) = parse_Excalibur_bin_to_numpy(default_mom_path_list[0])
+            for i in range(1, len(default_mom_path_list)):
+                (
+                    mom_states_x_temp,
+                    mom_states_y_temp,
+                    mom_states_z_temp,
+                    coord_temp,
+                ) = parse_Excalibur_bin_to_numpy(default_mom_path_list[i])
+                mom_states_x = np.concatenate((mom_states_x, mom_states_x_temp))
+                mom_states_y = np.concatenate((mom_states_y, mom_states_y_temp))
+                mom_states_z = np.concatenate((mom_states_z, mom_states_z_temp))
+        magnitudes = np.ones(len(mom_states_z))
     else:
         raise Exception(
             "Current outputfile_type support UppASD, vampire(partly) and .ovf, more is coming soon"
@@ -598,6 +832,36 @@ def parse_moment_and_coord_file2(pyvista_LR, working_dir=os.getcwd()):
                     mom_states_z_temp,
                 ) = vampire_moment_parser(default_mom_path_list[i])
 
+                mom_states_x = np.concatenate((mom_states_x, mom_states_x_temp))
+                mom_states_y = np.concatenate((mom_states_y, mom_states_y_temp))
+                mom_states_z = np.concatenate((mom_states_z, mom_states_z_temp))
+        magnitudes = np.ones(len(mom_states_z))
+    elif outputfile_type == "Excalibur":
+        default_mom_path_list = glob.glob(
+            os.path.abspath(os.path.join(working_dir, mom_name + "*.bin"))
+        )
+
+        if len(default_mom_path_list) == 1:
+            (
+                mom_states_x,
+                mom_states_y,
+                mom_states_z,
+                coord,
+            ) = parse_Excalibur_bin_to_numpy(default_mom_path_list[0])
+        else:
+            (
+                mom_states_x,
+                mom_states_y,
+                mom_states_z,
+                coord,
+            ) = parse_Excalibur_bin_to_numpy(default_mom_path_list[0])
+            for i in range(1, len(default_mom_path_list)):
+                (
+                    mom_states_x_temp,
+                    mom_states_y_temp,
+                    mom_states_z_temp,
+                    coord_temp,
+                ) = parse_Excalibur_bin_to_numpy(default_mom_path_list[i])
                 mom_states_x = np.concatenate((mom_states_x, mom_states_x_temp))
                 mom_states_y = np.concatenate((mom_states_y, mom_states_y_temp))
                 mom_states_z = np.concatenate((mom_states_z, mom_states_z_temp))
@@ -708,6 +972,37 @@ def parse_moment_and_coord_file3(pyvista_LR, working_dir=os.getcwd()):
                 mom_states_y = np.concatenate((mom_states_y, mom_states_y_temp))
                 mom_states_z = np.concatenate((mom_states_z, mom_states_z_temp))
         magnitudes = np.ones(len(mom_states_z))
+    elif outputfile_type == "Excalibur":
+        default_mom_path_list = glob.glob(
+            os.path.abspath(os.path.join(working_dir, mom_name + "*.bin"))
+        )
+
+        if len(default_mom_path_list) == 1:
+            (
+                mom_states_x,
+                mom_states_y,
+                mom_states_z,
+                coord,
+            ) = parse_Excalibur_bin_to_numpy(default_mom_path_list[0])
+        else:
+            (
+                mom_states_x,
+                mom_states_y,
+                mom_states_z,
+                coord,
+            ) = parse_Excalibur_bin_to_numpy(default_mom_path_list[0])
+            for i in range(1, len(default_mom_path_list)):
+                (
+                    mom_states_x_temp,
+                    mom_states_y_temp,
+                    mom_states_z_temp,
+                    coord_temp,
+                ) = parse_Excalibur_bin_to_numpy(default_mom_path_list[i])
+                mom_states_x = np.concatenate((mom_states_x, mom_states_x_temp))
+                mom_states_y = np.concatenate((mom_states_y, mom_states_y_temp))
+                mom_states_z = np.concatenate((mom_states_z, mom_states_z_temp))
+        magnitudes = np.ones(len(mom_states_z))
+
     else:
         raise Exception(
             "Current outputfile_type support UppASD, vampire(partly) and .ovf, more is coming soon"
@@ -754,3 +1049,15 @@ def system_size_reader(pyvista_LR, working_dir=os.getcwd()):
         gap_y = gap_y / normal_helper
         gap_z = gap_z / normal_helper
         pyvista_LR.rectrangle_spacing = (gap_x, gap_y, gap_z)
+    if pyvista_LR.outputfile_type == "Excalibur":
+        default_mom_path_list = glob.glob(
+            os.path.abspath(os.path.join(working_dir, "*.bin"))
+        )
+        filename = default_mom_path_list[0]
+        # we try to read the inpsd.dat file to get the system size
+        match = re.search(r"(\d+)x(\d+)x(\d+)x(\d+)", filename)
+        if match is None:
+            raise ValueError("Could not extract dimensions from filename")
+        d, x, y, z = map(int, match.groups())
+        pyvista_LR.system_size = (x, y, z)
+        pyvista_LR.rectrangle_spacing = (1, 1, 1)

@@ -88,7 +88,6 @@ def webui_realspace(
     path_from_user=None,
     pyvista_still_ratio=1,
     pyvista_interactive_ratio=1,
-    
 ):  # Here we use 'Initial_profile' as default profile, to avoid our user to use 'initial' as their profile name
     """
     Trame with pyvista initialization
@@ -201,6 +200,8 @@ def webui_realspace(
             elif ".data" in i:
                 pyvista_LR.outputfile_type = "vampire"
                 break
+            elif ".bin" in i:
+                pyvista_LR.outputfile_type = "Excalibur"
     if pyvista_LR.outputfile_type == "uppasd":
         try:
             foler_items_for_select = [
@@ -334,6 +335,35 @@ def webui_realspace(
             print(
                 "No vampire file in current directory, please check if .ovf file exists"
             )
+            pass
+    elif pyvista_LR.outputfile_type == "Excalibur":
+        try:
+            foler_items_for_select = [
+                a for a in os.listdir(state.selected_dir) if ".bin" in a
+            ]
+            foler_items_for_select.sort()
+            bin_cleanname_list = []
+            for filenames_bin in foler_items_for_select:
+                filenames_bin = filenames_bin[:-4]
+                for i in range(len(filenames_bin)):
+                    i = i + 1
+                    if filenames_bin[-i].isdigit() == False:
+                        bin_cleanname_list.append(filenames_bin[0 : -(i - 1)])
+                        break
+
+            # remove the duplicate name
+            bin_cleanname_list = list(set(bin_cleanname_list))
+            # print(bin_cleanname_list)
+            local_state.file_select_1 = bin_cleanname_list[0]
+            if len(bin_cleanname_list) > 1:
+                local_state.file_select_2 = bin_cleanname_list[1]
+            if len(bin_cleanname_list) > 2:
+                local_state.file_select_3 = bin_cleanname_list[2]
+            if len(bin_cleanname_list) > 3:
+                local_state.file_select_4 = bin_cleanname_list[3]
+            foler_items_for_select = bin_cleanname_list
+        except:
+            print("No bin file in current directory, please check if .bin file exists")
             pass
     # if True:
     try:

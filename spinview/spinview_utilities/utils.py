@@ -1784,12 +1784,14 @@ def plotter_add_mesh(
                     orient="vectors",
                     scale="magnitute",
                     factor=pyvista_LR.Ratio_record_arrow,
-                    geom=pv.Arrow(start=pyvista_LR.start_arrow,
-                    tip_length=pyvista_LR.tip_length_arrow,
-                    tip_radius=pyvista_LR.tip_radius_arrow,
-                    tip_resolution=int(pyvista_LR.tip_resolution_arrow),
-                    shaft_radius=pyvista_LR.shaft_radius_arrow,
-                    shaft_resolution=int(pyvista_LR.shaft_resolution_arrow),)
+                    geom=pv.Arrow(
+                        start=pyvista_LR.start_arrow,
+                        tip_length=pyvista_LR.tip_length_arrow,
+                        tip_radius=pyvista_LR.tip_radius_arrow,
+                        tip_resolution=int(pyvista_LR.tip_resolution_arrow),
+                        shaft_radius=pyvista_LR.shaft_radius_arrow,
+                        shaft_resolution=int(pyvista_LR.shaft_resolution_arrow),
+                    ),
                 )
                 # else:
                 #     print(
@@ -2722,14 +2724,16 @@ def plotter_add_mesh(
         rtm_data = local_state.rectrangle_mesh_image_data
 
         rtm_data_lens = len(rtm_data)
-
         if input_mesh_lens == rtm_data_lens:
             values = rtm_data.reshape(pyvista_LR.system_size)
 
             grid = pv.ImageData()
             grid.dimensions = values.shape
             grid.spacing = pyvista_LR.rectrangle_spacing
-            if pyvista_LR.outputfile_type == "ovf":
+            if (
+                pyvista_LR.outputfile_type == "ovf"
+                or pyvista_LR.outputfile_type == "Excalibur"
+            ):
                 grid["x_com"] = (
                     vectors_PolyData_1[0, :]
                     # .reshape(pyvista_LR.system_size)

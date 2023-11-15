@@ -182,22 +182,22 @@ def start(
             help="The image quality in server mode during operations, currently we only support > 1 value when using server mode.  Recommand to use 0.1 when only use the VTKjs model, not that VTKjs model needs manuel reload when function not works properly",
         ),
     ] = 1,
-    tom: Annotated[
+    server: Annotated[
         Optional[bool],
         typer.Option(
             metavar="💻Auto open browser",
-            help="Auto open the brower with the IP address, but it will gives a no related suggestion when activate.",
+            help="deactivate auto-open mode, you can open the brower with the IP address, but it will gives a no related suggestion when activate.",
         ),
-    ] = False,
+    ] = True,
 ):
     print(welcome_words)
     print(
         "Using ctrl + C to stop [bold red]S[/bold red][#FFA500]p[/#FFA500][bold Yellow]i[/bold Yellow][bold green]n[/bold green][bold Blue]V[/bold Blue][bold green]i[/bold green][#FF1493]e[/#FF1493][bold Purple]w [/bold Purple]"
     )
     print("\n")
-    if tom == False and tem == "main":
+    if server == False and tem == "main":
         print(
-            "[green]Using ctrl(windows)/cmd(macos) + left click the IP address below to open your browser or type the IP address into your browser [/green]"
+            "[green]Using ctrl(windows with windows terminal)/cmd(macos with Item2) + left click the IP address below to open your browser. Otherwise copy the IP address into your browser [/green]."
         )
 
     webui_realspace(
@@ -209,7 +209,7 @@ def start(
         trame_host=hi,
         ui_control_model=ucm,
         trame_exec_mode=tem,
-        trame_open_browser=tom,
+        trame_open_browser=server,
         pywebview_windows_size_x=pwx,
         pywebview_windows_size_y=pwy,
         path_from_user=wp,
